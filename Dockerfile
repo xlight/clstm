@@ -43,7 +43,8 @@ RUN apt-get -qqy install protobuf-compiler libprotobuf-dev
 RUN apt-get -qqy install libpng12-dev
 RUN cd /usr/local/include && hg clone http://bitbucket.org/eigen/eigen eigen3
 RUN apt-get -qqy install strace
-
+RUN apt-get install libzmq3-dev libzmq3 libzmqpp-dev libzmqpp3 libpng12-dev
+RUN apt-get install hdf5-helpers libhdf5-8 libhdf5-cpp-8 libhdf5-dev python-h5py
 RUN apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 VOLUME /work
