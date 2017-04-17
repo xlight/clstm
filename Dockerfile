@@ -48,7 +48,7 @@ RUN apt-get install -y hdf5-helpers libhdf5-8 libhdf5-cpp-8 libhdf5-dev python-h
 RUN apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 ADD . /CLSTM
 RUN cd /CLSTM && scons && scons install
-RUN python setup.py build && python setup.py install
+RUN cd /CLSTM && python setup.py build && python setup.py install
 RUN cd /CLSTM && ./run-tests
 
 VOLUME /work
