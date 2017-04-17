@@ -46,6 +46,10 @@ RUN apt-get -qqy install strace
 RUN apt-get install libzmq3-dev libzmq3 libzmqpp-dev libzmqpp3 libpng12-dev
 RUN apt-get install hdf5-helpers libhdf5-8 libhdf5-cpp-8 libhdf5-dev python-h5py
 RUN apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+ADD . /CLSTM
+RUN cd /CLSTM && scons && scons install
+RUN python setup.py build && python setup.py install
+RUN cd /CLSTM && ./run-tests
 
 VOLUME /work
 WORKDIR /work
